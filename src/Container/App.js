@@ -7,12 +7,29 @@ import { SignInComponent, SignUpComponent, DashBoard } from "../Components/index
 class App extends Component {
   render() {
     return (
-      <div className="bg">
+      <div>
         <Router>
           <Switch>
-            <Route exact path="/" render={_ => <SignInComponent errorReporter={this.props.auth.error} manager={this.props.signIn} />} />
-            <Route path="/signUp" render={_ => <SignUpComponent errorReporter={this.props.auth.error} manager={this.props.signUp} />} />
-            <Route path="/dashboard" render={_ => <DashBoard />} />
+            <Route exact path="/" render={_ => {
+              if (localStorage.getItem("signIN") == "true") {
+                window.location.assign("/dashboard");
+              }
+              return <SignInComponent errorReporter={this.props.auth.error} manager={this.props.signIn} />
+            }} />
+            <Route path="/signUp" render={_ => {
+              if (localStorage.getItem("signIN") == "true") {
+                window.location.href = "/dashboard";
+                return;
+              }
+              return <SignUpComponent errorReporter={this.props.auth.error} manager={this.props.signUp} />
+            }} />
+            <Route path="/dashboard" render={_ => {
+              if (localStorage.getItem("signIN") != "true") {
+                window.location.assign("/");
+                return;
+              }
+              return <DashBoard />
+            }} />
             <Route render={_ => <h1 style={{ color: "#fff" }}>404 Not Found</h1>} />
           </Switch>
         </Router>

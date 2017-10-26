@@ -33,10 +33,10 @@ export default class SignInComponent extends React.Component {
                                                 <Button style={{ backgroundColor: "transparent", border: 0 }} ><Glyphicon style={{ fontSize: 50, color: "rgba(211,211,211, 0.5)" }} glyph="user" /></Button>
                                             </Col>
                                         </Row>
-                                        <FormControl type="email" value={this.state.val} placeholder="Enter Email" onChange={e => { this.setState({ email: e.target.value }) }} />
+                                        <FormControl type="email" value={this.state.val} style={{ color: "gray" }} placeholder="Enter Email" onChange={e => { this.setState({ email: e.target.value }) }} />
                                         <FormControl.Feedback />
                                         <br />
-                                        <FormControl type="password" value={this.state.pass} placeholder="Enter Password" onChange={e => { this.setState({ pass: e.target.value }) }} />
+                                        <FormControl type="password" value={this.state.pass} style={{ color: "gray" }} placeholder="Enter Password" onChange={e => { this.setState({ pass: e.target.value }) }} />
                                         <FormControl.Feedback />
                                         <br /><br />
                                         <Button type="submit" bsSize="lg" bsStyle="info">Sign In</Button>
