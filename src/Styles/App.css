@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url("../Images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.vertical-center{
+  top: 25%;
+  margin-left: -2%;
+  position: absolute;
+}
