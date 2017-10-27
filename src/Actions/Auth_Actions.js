@@ -14,4 +14,12 @@ function signIn(obj) {
         });
     }
 }
-export { signUp, signIn };
+function signOut() {
+    return dispatch => {
+        dispatch({
+            type: "LOGOUT",
+            payload: ""
+        });
+    }
+}
+export { signUp, signIn, signOut };

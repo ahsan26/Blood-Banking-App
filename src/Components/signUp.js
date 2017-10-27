@@ -82,7 +82,7 @@ export default class SignInComponent extends React.Component {
                                             <FormControl onChange={e => { this.setState({ type: e.target.value }) }} componentClass="select" style={{ color: "gray" }}>
                                                 <option value="TYPE">Type</option>
                                                 <option value="Donor">Donor</option>
-                                                <option value="bloodseeker">Bloodseeker</option>
+                                                <option value="Blood_Seeker">Bloodseeker</option>
                                             </FormControl>
                                         </FormGroup>
                                         <FormControl type="email" style={{ color: "gray" }} value={this.state.email} placeholder="Enter Email" onChange={e => { this.setState({ email: e.target.value }) }} />

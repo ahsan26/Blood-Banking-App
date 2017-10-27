@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/App.css';
-import { signUp, signIn } from "../Actions/Auth_Actions";
+import { signUp, signIn, signOut } from "../Actions/Auth_Actions";
+import { getDonors, getSeekers } from "../Actions/data_fetcher_Actions";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { SignInComponent, SignUpComponent, DashBoard } from "../Components/index";
@@ -28,9 +29,9 @@ class App extends Component {
                 window.location.assign("/");
                 return;
               }
-              return <DashBoard />
+              return <DashBoard fetchDonors={this.props.getDonors} signOut={this.props.signOut} data={this.props.data_Fetcher} />
             }} />
-            <Route render={_ => <h1 style={{ color: "#fff" }}>404 Not Found</h1>} />
+            <Route render={_ => <h1 style={{ color: "#3498db", fontWeight: 600, textAlign: "center" }}>404 Not Found</h1>} />
           </Switch>
         </Router>
       </div>
@@ -39,5 +40,6 @@ class App extends Component {
 }
 
 export default connect(state => ({
-  auth: state.auth
-}), { signUp, signIn })(App);
+  auth: state.auth,
+  data_Fetcher: state.data_Fetcher
+}), { signUp, signIn, signOut, getDonors, getSeekers })(App);

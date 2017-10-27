@@ -12,3 +12,10 @@ body{
   margin-left: -2%;
   position: absolute;
 }
+.active{
+  background-color: #27B09A !important;
+  color: #fff !important;
+}
+.options svg{
+  color: red
+}
