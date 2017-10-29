@@ -5,7 +5,7 @@ import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import { Glyphicon, Row, Col } from "react-bootstrap";
 import { Route, Link, Switch } from "react-router-dom";
 import "../Styles/App.css";
-import { ShowDonors } from "./index";
+import { ShowDonors, ShowSeekers } from "./index";
 window.location.pathname == "/dashboard" ? document.body.style.backgroundImage = "url('')" : false;
 export default class DashBoard extends React.Component {
     constructor() {
@@ -25,36 +25,36 @@ export default class DashBoard extends React.Component {
                     <Col md={2}>
                         <Drawer containerStyle={styles.drawerMain} open={this.state.open}>
                             <Link className={(_ => {
-                                if (this.state.activeNotifier == 1) {
+                                if (window.location.pathname == "/dashboard") {
                                     return "active"
                                 }
                                 return "";
-                            })()} to="/dashboard" style={{ color: "gray" }}><MenuItem onClick={_ => this.setState({ activeNotifier: 1 })} style={styles.sideMenuSpecial} className={(_ => {
-                                if (this.state.activeNotifier == 1) {
+                            })()} to="/dashboard" style={{ color: "gray" }}><MenuItem style={styles.sideMenuSpecial} className={(_ => {
+                                if (window.location.pathname == "/dashboard") {
                                     return "active"
                                 }
                                 return "";
                             })()}><Glyphicon glyph="home" /> Dash Board</MenuItem></Link>
                             <br />
                             <Link className={(_ => {
-                                if (this.state.activeNotifier == 2) {
+                                if (window.location.pathname == "/dashboard/bloodDonors") {
                                     return "active"
                                 }
                                 return "";
-                            })()} to="/dashboard/bloodDonors" style={{ color: "gray" }}>   <MenuItem onClick={_ => this.setState({ activeNotifier: 2 })} style={styles.sideMenu} className={(_ => {
-                                if (this.state.activeNotifier == 2) {
+                            })()} to="/dashboard/bloodDonors" style={{ color: "gray" }}>   <MenuItem style={styles.sideMenu} className={(_ => {
+                                if (window.location.pathname == "/dashboard/bloodDonors") {
                                     return "active"
                                 }
                                 return "";
                             })()}><Glyphicon glyph="list-alt" /> Donors List</MenuItem></Link>
                             <br />
                             <Link className={(_ => {
-                                if (this.state.activeNotifier == 3) {
+                                if (window.location.pathname == "/dashboard/bloodSeekers") {
                                     return "active"
                                 }
                                 return "";
-                            })()} to="/dashboard/bloodSeekers" style={{ color: "gray" }}>   <MenuItem onClick={_ => this.setState({ activeNotifier: 3 })} style={styles.sideMenu} className={(_ => {
-                                if (this.state.activeNotifier == 3) {
+                            })()} to="/dashboard/bloodSeekers" style={{ color: "gray" }}>   <MenuItem style={styles.sideMenu} className={(_ => {
+                                if (window.location.pathname == "/dashboard/bloodSeekers") {
                                     return "active"
                                 }
                                 return "";
@@ -68,10 +68,10 @@ export default class DashBoard extends React.Component {
                             <Switch>
                                 <Route path="/dashboard/bloodDonors" render={_ => <ShowDonors fetchDonors={this.props.fetchDonors} data={this.props.data} />} />
                                 <Route path="/dashboard/bloodSeekers" render={_ => <h1>Seekers</h1>} />
-                                <Route exact path="/dashboard/:contentName" render={_ => {
+                                {/* <Route path="/dashboard/:contentName" render={_ => {
                                     document.body.style.backgroundImage = "url('')";
                                     return <h1>404 Not Found</h1>
-                                }} />
+                                }} /> */}
                             </Switch>
                         </div>
                     </Col>

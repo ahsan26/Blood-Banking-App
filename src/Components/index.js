@@ -2,4 +2,6 @@ import SignUpComponent from "./signUp";
 import SignInComponent from "./signIn";
 import DashBoard from "./dashboard";
 import ShowDonors from "./donors";
-export { SignUpComponent, SignInComponent, DashBoard, ShowDonors };
+import ShowUserDetails from "./ShowUserDetails";
+import ShowSeekers from "/seekers";
+export { SignUpComponent, SignInComponent, DashBoard, ShowDonors, ShowUserDetails , Seekers};
