@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url("../Images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.vertical-center{
+  top: 12%;
+  /* margin-left: -12%; */
+  position: absolute;
+}
+.active{
+  background-color: #27B09A !important;
+  color: #fff !important;
+}
+.options svg{
+  color: red
+}
