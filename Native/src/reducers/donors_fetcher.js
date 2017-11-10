@@ -1,10 +1,10 @@
 export default (state = {
-    donors: ["t1", "t2"]
+    donors: []
 }, action) => {
     switch (action.type) {
         case "GET_DONORS":
             state = { ...state }
-            state.donors = action.payload;
+            state.donors = [];
             return state;
     }
     return state;

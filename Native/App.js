@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
-import Main from "./src/";
+import Main from "./src/index";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -23,8 +23,7 @@ class App extends Component<{}> {
   }
   render() {
     return (
-      <View style={styles.container}>
-      </View>
+        <Main />
     );
   }
 }
