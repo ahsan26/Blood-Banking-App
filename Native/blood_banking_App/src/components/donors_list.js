@@ -32,14 +32,14 @@ const styles = {
         flexDirection: "row",
         justifyContent: "space-between",
         margin: 20,
-        marginTop: 10,
+        marginTop: 10
     },
     each_user_thumbnail: {
         width: 100,
         height: 100
     },
     textStyle: {
-        marginTop: 20,
+        marginTop: 10,
     },
     iconStyle: {
         color: "gray",

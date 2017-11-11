@@ -7,8 +7,9 @@ export default (props) => (
         <View style={props.styles.identifier}>
             <Text style={props.styles.identifierText}>{props.donor.blood_group}</Text>
         </View>
-        <View>
+        <View style={{ justifyContent: "flex-start", marginTop: -10 , alignItems: "flex-start"}}>
             <Text style={props.styles.textStyle}>{props.donor.userName}</Text>
+            <Text style={props.styles.textStyle}>{props.donor.location}</Text>
         </View>
         <View>
             <Text style={props.styles.textStyle}>{props.donor.cellNumber}</Text>

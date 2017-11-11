@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Content, Button, Text, Form, Item, Label, Input, Picker } from "native-base";
 import { CustomDrawer } from "./index";
+import { AsyncStorage } from "react-native";
 
 export default class Register extends React.Component {
     constructor() {
@@ -15,8 +16,11 @@ export default class Register extends React.Component {
     }
     submit = () => {
         const { email, password } = this.state;
-        if (his.state.email && this.state.password) {
+        if (this.state.email && this.state.password) {
             this.props.signIn({ "email": email, "password": password });
+            if (AsyncStorage.getItem("logged")) {
+                this.props.history.push("/");
+            }
         }
     }
     componentWillReceiveProps(nextProps) {
