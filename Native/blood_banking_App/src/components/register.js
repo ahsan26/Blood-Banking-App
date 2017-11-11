@@ -29,7 +29,7 @@ export default class Register extends React.Component {
         const { username, age, cellNumber, location, email, gender, blood_group, password } = this.state;
         if (this.state.username && this.state.age && this.state.cellNumber && this.state.email && this.state.location && this.state.password) {
             this.props.signUp({ "userName": username, "age": age, "cellNumber": cellNumber, "email": email, "blood_group": blood_group, "gender": gender, "location": location, "password": password, type: "Donor" });
-            let status = AsyncStorage.getItem("logged");
+            let status = this.props.status;
             if (status) {
                 this.props.history.push("/");
             }

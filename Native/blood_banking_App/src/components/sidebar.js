@@ -6,7 +6,9 @@ export default class Sidebar extends Component {
         return false;
     }
     render() {
-        console.log("!!!!!!!!   ", (AsyncStorage.getItem("loggedUser")));
+        AsyncStorage.getItem("logged").then(value => {
+            console.log("!!!!! ", value);
+        });
         return (
             <Container>
                 <Container style={styles.attractor}>

@@ -10,13 +10,16 @@ class Routes extends React.Component {
     componentDidMount() {
         this.props.getDonors();
     }
+    componentWillUpdate = (nextProps, nextState) => {
+        console.log("routes !!!!!!  ", nextProps, nextState);
+    }
     render() {
         return (
             <NativeRouter>
                 <Container>
                     <Route exact path="/" render={(props) => (<Dashboard {...props} donors={this.props.donors.donors} />)} />
-                    <Route path="/register" render={(props) => (<Register status={this.props.auth.loggedIn} signUp={this.props.signUp} {...props} />)} />
-                    <Route path="/login" render={(props) => (<Login status={this.props.auth.loggedIn} signIn={this.props.signIn} {...props} />)} />
+                    <Route path="/register" render={(props) => (<Register status={this.props.auth.logged} signUp={this.props.signUp} {...props} />)} />
+                    <Route path="/login" render={(props) => (<Login status={this.props} signIn={this.props.signIn} {...props} />)} />
                     <Route path="/donor_dashboard" render={_ = <Text>Dashboard</Text>} />
                 </Container>
             </NativeRouter>

@@ -3,7 +3,7 @@ import { Container, Content, Button, Text, Form, Item, Label, Input, Picker } fr
 import { CustomDrawer } from "./index";
 import { AsyncStorage } from "react-native";
 
-export default class Register extends React.Component {
+export default class Login extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -11,25 +11,17 @@ export default class Register extends React.Component {
             password: ""
         }
     }
-    componetWillUpdate() {
-        return false;
-    }
     submit = () => {
         const { email, password } = this.state;
         if (this.state.email && this.state.password) {
             this.props.signIn({ "email": email, "password": password });
-            if (AsyncStorage.getItem("logged")) {
-                this.props.history.push("/");
-            }
-        }
-    }
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.status) {
-            this.props.history.push("/donor_dashboard");
+            console.log(this.props.status);
+            // if (status) {
+            //     this.props.history.push("/donor_dashboard");
+            // }
         }
     }
     render() {
-        console.log(this.props);
         return (
             <CustomDrawer {...this.props} title="Login">
                 <Container>
@@ -43,7 +35,7 @@ export default class Register extends React.Component {
                                 <Label>Password</Label>
                                 <Input onChangeText={(e) => { this.setState({ password: e }) }} />
                             </Item>
-                            <Button onPress={this.submit} style={{ backgroundColor: "#AB0000", marginLeft: 10, marginRight: 10 }} block><Text>Register</Text></Button>
+                            <Button onPress={this.submit} style={{ backgroundColor: "#AB0000", marginLeft: 10, marginRight: 10 }} block><Text>LogIn</Text></Button>
                         </Form>
                     </Content>
                 </Container>

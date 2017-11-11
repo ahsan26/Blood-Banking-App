@@ -13,13 +13,13 @@ class DonorsList extends React.Component {
     }
     render() {
         return (
-            <View style={styles.main}>
+            <ScrollView style={styles.main}>
                 {
                     this.props.donors.map((item, i) => (
                         <EachDonor key={i} styles={styles} makeACall={this.makeACall} donor={item} />
                     ))
                 }
-            </View>
+            </ScrollView>
         );
     }
 }
